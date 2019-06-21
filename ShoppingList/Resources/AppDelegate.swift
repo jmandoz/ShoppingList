@@ -8,15 +8,28 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
+    
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        UNUserNotificationCenter.current().delegate = self
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.badge]) { (granted, _)in
+            if granted {
+                print("user granted notifications")
+            } else {
+                print("user denied notifications")
+            }
+        }
+        
         return true
     }
 

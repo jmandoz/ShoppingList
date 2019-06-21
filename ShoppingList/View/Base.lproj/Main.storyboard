@@ -18,35 +18,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="A1n-GR-mQL">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="A1n-GR-mQL" customClass="ButtonTableViewCell" customModule="ShoppingList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A1n-GR-mQL" id="X1W-6t-qHy">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="282" translatesAutoresizingMaskIntoConstraints="NO" id="Mh0-ta-iWh">
-                                            <rect key="frame" x="20" y="-1" width="368" height="44"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="281" translatesAutoresizingMaskIntoConstraints="NO" id="Mh0-ta-iWh">
+                                            <rect key="frame" x="20" y="-1" width="369" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDA-xX-Qeu">
-                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r67-7u-7hd">
-                                                    <rect key="frame" x="324" y="0.0" width="44" height="44"/>
+                                                    <rect key="frame" x="325" y="0.0" width="44" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="dqx-jD-z4C"/>
                                                         <constraint firstAttribute="width" constant="44" id="h6K-XJ-ory"/>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="buttonTapped:" destination="A1n-GR-mQL" eventType="touchUpInside" id="83A-Lw-f5a"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="copmpleteButton" destination="r67-7u-7hd" id="liV-dA-Jzz"/>
+                                    <outlet property="itemLabel" destination="mDA-xX-Qeu" id="atd-wp-VjN"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -55,10 +62,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Shopping List" id="sYL-jH-N7H">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Iwy-FF-EiC"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Iwy-FF-EiC">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="h3Q-mB-k3I" id="h7D-2b-hsO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfO-Lo-Cj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="h3Q-mB-k3I" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-122" y="101"/>
         </scene>
